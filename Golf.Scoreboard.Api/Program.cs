@@ -36,17 +36,17 @@ app.MapGet("/scoreboard", () =>
         else
         {
             player.pos = playerRow.ChildNodes[1].InnerText;
-            player.player = playerRow.ChildNodes[3].ChildNodes[1].InnerText;
-            player.country_flag_image = playerRow.ChildNodes[3].ChildNodes[0].Attributes["src"].Value;
-            player.link = playerRow.ChildNodes[3].ChildNodes[1].Attributes["href"].Value;
-            player.to_par = playerRow.ChildNodes[4].InnerText;
-            player.today = playerRow.ChildNodes[5].InnerText;
-            player.thru = playerRow.ChildNodes[6].InnerText;
-            player.r1 = playerRow.ChildNodes[7].InnerText;
-            player.r2 = playerRow.ChildNodes[8].InnerText;
-            player.r3 = playerRow.ChildNodes[9].InnerText;
-            player.r4 = playerRow.ChildNodes[10].InnerText;
-            player.tot = playerRow.ChildNodes[11].InnerText;
+            player.player = playerRow.ChildNodes[2].ChildNodes[1].InnerText;
+            player.country_flag_image = playerRow.ChildNodes[2].ChildNodes[0].Attributes["src"].Value;
+            player.link = playerRow.ChildNodes[2].ChildNodes[1].Attributes["href"].Value;
+            player.to_par = playerRow.ChildNodes[3].InnerText;
+            player.today = playerRow.ChildNodes[4].InnerText;
+            player.thru = playerRow.ChildNodes[5].InnerText;
+            player.r1 = playerRow.ChildNodes[6].InnerText;
+            player.r2 = playerRow.ChildNodes[7].InnerText;
+            player.r3 = playerRow.ChildNodes[8].InnerText;
+            player.r4 = playerRow.ChildNodes[9].InnerText;
+            player.tot = playerRow.ChildNodes[10].InnerText;
         }
 
         return player;
