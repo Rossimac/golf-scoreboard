@@ -1,18 +1,28 @@
-﻿using Golf.Scoreboard.Api.Model;
+using Golf.Scoreboard.Api.Model;
 using HtmlAgilityPack;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddMemoryCache();
 
 var app = builder.Build();
 
 app.UseSwagger();
 app.UseSwaggerUI();
 
-app.MapGet("/scoreboard", () =>
+app.MapGet("/scoreboard", ([FromServices] IMemoryCache memoryCache) =>
 {
+    var cachedScoredboard = memoryCache.Get<Scoreboard>("scoreboard");
+
+    if(cachedScoredboard is not null)
+    {
+        return cachedScoredboard;
+    }
+
     var url = "https://www.espn.com/golf/leaderboard";
     var web = new HtmlWeb();
     var doc = web.Load(url);
@@ -66,6 +76,8 @@ app.MapGet("/scoreboard", () =>
         data_source = url,
         players = playerRows.ToArray()
     };
+
+    memoryCache.Set("scoreboard", scoreboard, TimeSpan.FromSeconds(30));
 
     return scoreboard;
 })
