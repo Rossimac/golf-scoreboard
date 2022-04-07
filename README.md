@@ -6,7 +6,7 @@ A .NET 6.0 WebAPI scraper of http://www.espn.com/golf/leaderboard (e.g. The Mast
 Based on https://github.com/loisaidasam/the-masters-api
 
 # Usage
-Run using `docker-compose up` from a Terminal. Then configure Nginx Proxy Manager to bind the WebAPI docker container to a DNS record.
+Run using `docker-compose up` from a Terminal. Then configure [Nginx Proxy Manager](https://github.com/NginxProxyManager) to bind the Web API docker container to a DNS record.
 Note: I am not sharing my UI, but it is a static website that I include in my docker compose and is therefore accessible by Nginx Proxy Manager.
 
 ![Proxy Host Configuration for your UI](https://user-images.githubusercontent.com/5255084/162196260-47fe4eb2-5e56-45f7-ac35-252b8f0f2cef.png)
