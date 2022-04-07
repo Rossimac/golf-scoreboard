@@ -1,7 +1,7 @@
 # golf-scoreboard
 
 # About
-A .NET 6.0 WebAPI scraper of http://www.espn.com/golf/leaderboard (e.g. The Masters, but will work for any competition shown).
+A scraper of http://www.espn.com/golf/leaderboard (e.g. The Masters, but will work for any competition on a given week). Built using a web API with minimal API, ASP.NET Core, and .NET 6.
 
 Based on https://github.com/loisaidasam/the-masters-api
 
